@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Subtract16Regular, Square16Regular, Dismiss16Regular } from '@fluentui/react-icons';
-import { ais, AI } from "../utils/ai";
+import { ais } from "../utils/ai";
 import { useAIContext } from "../context/AIContext";
 import MaximizeButton from "./MaximizeButton";
 

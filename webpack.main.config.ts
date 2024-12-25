@@ -33,5 +33,5 @@ export const mainConfig: Configuration = {
   node: {
     __dirname: false,
   },
-  watch: true
+  watch: false
 };

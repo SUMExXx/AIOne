@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Subtract16Regular, Square16Regular, Dismiss16Regular, ArrowMinimize16Regular } from '@fluentui/react-icons';
-import { ais, AI } from "../utils/ai";
-import { useAIContext } from "../context/AIContext";
 
 const MaximizeButton: React.FC = () => {
 
