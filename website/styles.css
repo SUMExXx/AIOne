@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+    /* Reduced height */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px;
+    /* Adjusted logo size */
+}
+
+.download-btn {
+    background-color: #000;
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 12px 30px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.download-btn:active {
+    background-color: #222;
+}
+
+/* Main Header */
+header h1 {
+    font-size: 3rem;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    /* Reduced space */
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background-color: #f4f4f4;
+    padding: 30px;
+    border: 1px solid #ddd;
+    width: 280px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature h2 {
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #666;
+}
+
+/* Contact Section */
+.contact {
+    margin-top: 20px;
+    /* Reduced space */
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    color: #666;
+}
+
+.contact a {
+    color: #00d1b2;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile and Tablet Responsive */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .download-btn {
+        margin-top: 15px;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        height: 30px;
+    }
+
+    .download-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+}
