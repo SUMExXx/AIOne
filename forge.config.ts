@@ -14,11 +14,17 @@ const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     icon: './public/AIO.ico',
+    name: 'AIOne',  // App name
+    appBundleId: 'com.sumexxx.aione',
+    executableName: 'AIOne',
+    overwrite: true, 
   },
   rebuildConfig: {},
   makers: [
     new MakerSquirrel({
-      setupIcon: './public/AIO.ico'
+      setupIcon: './public/AIO.ico',
+      name: 'AIOne',
+      setupExe: 'AIOneInstaller.exe',
     }),
     new MakerZIP({}, ['darwin']),
     new MakerRpm({}),
