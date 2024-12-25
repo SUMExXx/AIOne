@@ -11,6 +11,7 @@ body {
     line-height: 1.6;
 }
 
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,7 +23,6 @@ body {
 .navbar {
     background-color: #fff;
     padding: 10px 20px;
-    /* Reduced height */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -37,7 +37,6 @@ body {
 
 .navbar-logo {
     height: 40px;
-    /* Adjusted logo size */
 }
 
 .download-btn {
@@ -46,9 +45,12 @@ body {
     font-size: 1.25rem;
     padding: 12px 30px;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     border: none;
+    border-radius: 4px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
 }
 
 .download-btn:hover {
@@ -58,6 +60,51 @@ body {
 
 .download-btn:active {
     background-color: #222;
+}
+
+.caret {
+    margin-left: 20px;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 100%;
+    width: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: left;
+    top: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px); /* Initially moved up */
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown */
+.dropdown-content.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(10px); /* Move down for the "drawing" effect */
 }
 
 /* Main Header */
@@ -79,7 +126,6 @@ header p {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-    /* Reduced space */
     gap: 30px;
     flex-wrap: wrap;
 }
@@ -91,6 +137,13 @@ header p {
     width: 280px;
     text-align: center;
     margin-bottom: 30px;
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .feature h2 {
@@ -106,7 +159,6 @@ header p {
 /* Contact Section */
 .contact {
     margin-top: 20px;
-    /* Reduced space */
     padding: 20px;
     background-color: #f4f4f4;
 }
@@ -176,5 +228,10 @@ header p {
 
     header p {
         font-size: 0.9rem;
+    }
+
+    .feature {
+        width: 100%;
+        padding: 20px;
     }
 }

@@ -1,52 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AIOne - All-in-One AI App</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" href="AIO.ico" type="image/x-icon">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIOne - All-in-One AI App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="AIO.ico" type="image/x-icon">
+</head>
 
-    <body>
-        <!-- Navbar with Logo and Download button -->
-        <nav class="navbar">
-            <div class="container">
-                <img src="AIO.ico" alt="AIOne Logo" class="navbar-logo">
-                <a href="https://github.com/SUMExXx/AIOne/releases/download/v1.0.0/AIOneInstaller.exe"
-                    class="download-btn">Download Installer</a>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
+<body>
+    <!-- Navbar with Logo and Download button -->
+    <nav class="navbar">
         <div class="container">
-            <header>
-                <h1>AIOne</h1>
-                <p>The All-in-One AI App - ChatGPT, Gemini, and Claude.</p>
-            </header>
-
-            <section id="features" class="features">
-                <div class="feature">
-                    <h2>ChatGPT</h2>
-                    <p>Interact with the most powerful AI language model to assist you in any task.</p>
+            <img src="AIO.ico" alt="AIOne Logo" class="navbar-logo">
+            <div class="dropdown">
+                <button class="download-btn" id="download-btn">
+                    Download Installer <span class="caret">&#9660;</span>
+                </button>
+                <div class="dropdown-content" id="download-options">
+                    <a href="https://github.com/SUMExXx/AIOne/releases/download/v1.0.0/AIOneInstaller.exe">Windows
+                        Installer</a>
+                    <a href="#">Mac Installer (Coming Soon)</a>
+                    <a href="https://github.com/SUMExXx/AIOne/releases/download/v1.0.0/aione_1.0.0_amd64.deb">Linux Installer (DEB)</a>
+                    <a href="https://github.com/SUMExXx/AIOne/releases/download/v1.0.0/aione-1.0.0-1.x86_64.rpm">Linux Installer (RPM)</a>
                 </div>
-                <div class="feature">
-                    <h2>Gemini</h2>
-                    <p>Access the next generation of AI for creative and technical needs.</p>
-                </div>
-                <div class="feature">
-                    <h2>Claude</h2>
-                    <p>Explore cutting-edge AI technology designed for intelligent and precise tasks.</p>
-                </div>
-            </section>
-
-            <!-- Reduced space above the Contact section -->
-            <section id="contact" class="contact">
-                <h2>Contact Us</h2>
-                <p>Have questions? Reach out to us at <a href="mailto:sumexxx666@gmail.com">sumexxx666@gmail.com</a></p>
-            </section>
+            </div>
         </div>
-    </body>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1>AIOne</h1>
+            <p>The All-in-One AI App - ChatGPT, Gemini, and Claude.</p>
+        </header>
+
+        <section id="features" class="features">
+            <div class="feature">
+                <h2>ChatGPT</h2>
+                <p>Interact with the most powerful AI language model to assist you in any task.</p>
+            </div>
+            <div class="feature">
+                <h2>Gemini</h2>
+                <p>Access the next generation of AI for creative and technical needs.</p>
+            </div>
+            <div class="feature">
+                <h2>Claude</h2>
+                <p>Explore cutting-edge AI technology designed for intelligent and precise tasks.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us at <a href="mailto:sumexxx666@gmail.com">sumexxx666@gmail.com</a></p>
+        </section>
+    </div>
+
+    <script>
+        // Dropdown toggle script
+        document.getElementById('download-btn').addEventListener('click', function (event) {
+            const dropdownContent = document.getElementById('download-options');
+            dropdownContent.classList.toggle('show');
+            event.stopPropagation(); // Prevent the click event from propagating to the document
+        });
+
+        // Close the dropdown if clicked outside
+        document.addEventListener('click', function (event) {
+            const dropdownContent = document.getElementById('download-options');
+            const downloadBtn = document.getElementById('download-btn');
+
+            // Check if the click was outside the button and dropdown
+            if (!dropdownContent.contains(event.target) && !downloadBtn.contains(event.target)) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+    </script>
+</body>
 
 </html>

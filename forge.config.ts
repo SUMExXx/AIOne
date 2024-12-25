@@ -24,11 +24,35 @@ const config: ForgeConfig = {
     new MakerSquirrel({
       setupIcon: './public/AIO.ico',
       name: 'AIOne',
+      title: 'AIOne',
+      noMsi: false,
+      description: 'AIOne - All-in-one AI Desktop App',
+      authors: 'Suman Debnath',
+      exe: 'AIOne.exe',
       setupExe: 'AIOneInstaller.exe',
+      setupMsi: 'AIOneInstaller.msi',
+      iconUrl: 'https://sumexxx.github.io/AIOne/AIO.ico'
     }),
     new MakerZIP({}, ['darwin']),
-    new MakerRpm({}),
-    new MakerDeb({})
+    new MakerRpm({
+      options: {
+        description: 'AIOne - All-in-one AI Desktop App',
+        homepage: 'https://sumexxx.github.io/AIOne/', 
+        license: 'MIT',
+        icon: './public/AIO.ico',
+      },
+
+    }),
+    new MakerDeb({
+      options: {
+        icon: './public/AIO.ico',
+        homepage: 'https://sumexxx.github.io/AIOne/',
+        description: 'AIOne - All-in-one AI Desktop App',
+        maintainer: 'Suman Debnath <email@example.com>',                                    
+        section: 'utils',                         
+        depends: ['libgtk-3-0', 'libnotify4'],
+      }
+    })
   ],
   plugins: [
     new AutoUnpackNativesPlugin({}),
