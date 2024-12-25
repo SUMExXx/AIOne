@@ -1,0 +1,105 @@
+{
+  "name": "aione",
+  "productName": "AIOne",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": ".webpack/main",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx .",
+    "builder": "webpack --config webpack.main.config.ts && webpack --config webpack.renderer.config.ts && webpack --config webpack.preload.config.ts"
+  },
+  "build": {
+    "appId": "com.sumexxx.aione",
+    "productName": "AIOne",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      ".webpack/**/*",
+      "src/index.ts",
+      "src/preload.ts"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.6.0",
+    "@electron-forge/maker-deb": "^7.6.0",
+    "@electron-forge/maker-rpm": "^7.6.0",
+    "@electron-forge/maker-squirrel": "^7.6.0",
+    "@electron-forge/maker-zip": "^7.6.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
+    "@electron-forge/plugin-fuses": "^7.6.0",
+    "@electron-forge/plugin-webpack": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron": "^1.4.38",
+    "@types/mime-types": "^2.1.4",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "@vercel/webpack-asset-relocator-loader": "1.7.3",
+    "autoprefixer": "^10.4.20",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "electron": "33.2.0",
+    "eslint": "^9.15.0",
+    "eslint-plugin-import": "^2.25.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "node-loader": "^2.0.0",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.12",
+    "ts-loader": "^9.2.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.6.3",
+    "webpack-cli": "^6.0.1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Suman Debnath",
+    "email": "sumexxx666@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@electron/asar": "^3.2.17",
+    "@fluentui/react-components": "^9.54.17",
+    "@fluentui/react-icons": "^2.0.260",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/addon-search": "^0.15.0",
+    "@xterm/xterm": "^5.5.0",
+    "aione": "file:",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "electron-squirrel-startup": "^1.0.1",
+    "glob": "^11.0.0",
+    "mime-types": "^2.1.35",
+    "os-browserify": "^0.3.0",
+    "postcss": "^8.4.47",
+    "postcss-loader": "^8.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-toastify": "^10.0.6",
+    "rimraf": "^6.0.1",
+    "sharp": "^0.33.5"
+  },
+  "packageManager": "npm@11.0.0",
+  "packagerConfig": {
+    "icon": "./public/AIO.ico"
+  }
+}

@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  /* margin: auto;
+  max-width: 38rem;
+  padding: 2rem; */
+}
+
+.no-scrollbar {
+  @apply overflow-auto;
+  /* Allows scrolling */
+  scrollbar-width: none;
+  /* Firefox hides scrollbar */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera hides scrollbar */
+}
+
+.thin-scrollbar {
+  @apply overflow-y-auto;
+  /* Apply Tailwind's overflow utility */
+
+  /* Firefox */
+  scrollbar-width: thin;
+  /* Make the scrollbar thin */
+  scrollbar-color: #323233 transparent;
+  /* Color for thumb and track */
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the scrollbar */
+  height: 100%;
+  /* Full height for the track */
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #323233;
+  /* Color of the scrollbar thumb */
+  border-radius: 4px;
+  /* Round the thumb */
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #323233;
+  /* Darker color on hover */
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  /* Color of the track */
+}
