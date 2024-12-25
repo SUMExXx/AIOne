@@ -14,7 +14,7 @@ const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     icon: './public/AIO.ico',
-    name: 'AIOne',  // App name
+    name: 'AIOne',
     appBundleId: 'com.sumexxx.aione',
     executableName: 'AIOne',
     overwrite: true, 

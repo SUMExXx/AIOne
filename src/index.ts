@@ -9,7 +9,9 @@ import fs from 'fs';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
-dotenv.config(); 
+dotenv.config();
+
+app.setName('AIOne');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -36,6 +38,8 @@ const createWindow = (): void => {
 
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+
+  mainWindow.setTitle('AIOne');
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
