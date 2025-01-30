@@ -20,6 +20,6 @@
       "src/*": ["src/*"],
     }
   },
-  "include": ["src/**/*", "static/**/*", "types/electron.d.ts"],
+  "include": ["src/**/*", "static/**/*", "types/electron.d.ts", "types/global.d.ts"],
   "exclude": ["node_modules"]
 }

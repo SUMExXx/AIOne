@@ -1,10 +1,3 @@
-export interface AI {
-    id: string;
-    name: string;
-    logo: string;
-    url: string;
-}
-
 export const ais: AI[] = [
     {
         "id": "0",
@@ -23,5 +16,11 @@ export const ais: AI[] = [
         "name": "Claude",
         "logo": "/images/claude.png",
         "url": "https://claude.ai/",
+    },
+    {
+        "id": "3",
+        "name": "DeepSeek",
+        "logo": "/images/deepseek.png",
+        "url": "https://chat.deepseek.com/",
     }
 ];
