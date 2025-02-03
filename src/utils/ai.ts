@@ -1,3 +1,5 @@
+import { AI } from "../../types/global";
+
 export const ais: AI[] = [
     {
         "id": "0",
@@ -24,3 +26,5 @@ export const ais: AI[] = [
         "url": "https://chat.deepseek.com/",
     }
 ];
+
+export const mainLogo = "/images/AIO.png";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Subtract16Regular, Square16Regular, Dismiss16Regular } from '@fluentui/react-icons';
-import { ais } from "../utils/ai";
+import { ais, mainLogo } from "../utils/ai";
 import { useAIContext } from "../context/AIContext";
 import MaximizeButton from "./MaximizeButton";
 
@@ -22,9 +22,7 @@ const TitleBar: React.FC = () => {
 
     const [logo, setLogo] = useState<string | null>(null);
     const [aiLogoData, setAILogoData] = useState<string[]>([]);
-    // const [chatgptLogo, setChatGPTLogo] = useState<string | null>(null);
-    // const [geminiLogo, setGeminiLogo] = useState<string | null>(null);
-    // const [claudeLogo, setClaudeLogo] = useState<string | null>(null);
+    
     const setAILogo = () => {
         ais.forEach((ai, index) => {
             window.electronAPI.getAssetImage(ai.logo).then((logo) => {
@@ -39,11 +37,18 @@ const TitleBar: React.FC = () => {
         });
     }
 
+    const setMainLogo = () => {
+        window.electronAPI.getAssetImage(mainLogo).then((logo) => {
+            if(logo){
+                setLogo(logo)
+            }
+        });
+    }
+
     useEffect(() => {
+        setMainLogo();
         setAILogo();
     }, []);
-
-    // const logoArray = [chatgptLogo, geminiLogo, claudeLogo];
 
     return (
         <div className="w-full h-[40px] min-h-[40px] bg-white flex justify-center items-center">

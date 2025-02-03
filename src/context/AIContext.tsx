@@ -1,5 +1,5 @@
 import React, { createContext, useState, ReactNode, useContext } from 'react';
-import { ais, AI } from 'src/utils/ai';
+import { ais} from 'src/utils/ai';
 
 // Define the types for context values
 interface AIContextType {
