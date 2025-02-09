@@ -41,6 +41,20 @@ const createWindow = (): void => {
 
   mainWindow.setTitle('AIOne');
 
+  mainWindow.on('maximize', () => {
+    if (mainWindow) {
+      // Send fullscreen state to renderer process
+      mainWindow.webContents.send('fullscreen-change', true);
+    }
+  });
+
+  mainWindow.on('unmaximize', () => {
+    if (mainWindow) {
+      // Send fullscreen state to renderer process
+      mainWindow.webContents.send('fullscreen-change', false);
+    }
+  });
+
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 };
@@ -79,6 +93,10 @@ ipcMain.on('close-window', () => {
     if (mainWindow) {
         mainWindow.close(); // Close the window
     }
+});
+
+ipcMain.handle('get-fullscreen', () => {
+  return mainWindow ? mainWindow.isFullScreen() : false;
 });
 
 app.on('activate', () => {

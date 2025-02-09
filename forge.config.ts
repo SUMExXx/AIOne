@@ -48,7 +48,7 @@ const config: ForgeConfig = {
         icon: './public/AIO.ico',
         homepage: 'https://sumexxx.github.io/AIOne/',
         description: 'AIOne - All-in-one AI Desktop App',
-        maintainer: 'Suman Debnath <email@example.com>',                                    
+        maintainer: 'Suman Debnath <sumexxx666@gmail.com>',                                    
         section: 'utils',                         
         depends: ['libgtk-3-0', 'libnotify4'],
       }

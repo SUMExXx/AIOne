@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Subtract16Regular, Square16Regular, Dismiss16Regular, ArrowMinimize16Regular } from '@fluentui/react-icons';
+import React, { useState, useEffect } from "react";
+import { Square16Regular, ArrowMinimize16Regular } from '@fluentui/react-icons';
 
 const MaximizeButton: React.FC = () => {
 
@@ -7,11 +7,24 @@ const MaximizeButton: React.FC = () => {
 
     const handleMaximize = () => {
         window.electronAPI.maximizeWindow();
-        setIsFullscreen(!isFullscreen);
+        // setIsFullscreen(!isFullscreen);
     };
 
+    const windowStatus = async () => {
+        return await window.electronAPI.getFullscreenStatus();
+    }
+
+    useEffect(() => {
+        windowStatus().then((status) => {
+            setIsFullscreen(status);
+        });
+        window.electronAPI.onFullscreenChange((isFullscreen: boolean) => {
+            setIsFullscreen(isFullscreen);
+        });
+    }, []);
+
     return (
-        <button onClick={handleMaximize} className="text-customDarkGrey h-full px-[16px] transition-colors duration-200 hover:bg-[#E5E5E5] flex items-center justify-center">
+        <button onClick={handleMaximize} className="text-ui dark:text-ui-dark dark:hover:bg-uiHover-dark h-full px-[16px] transition-colors duration-200 hover:bg-uiHover flex items-center justify-center" style={{ WebkitAppRegion: "no-drag" } as React.CSSProperties}>
             {
                 isFullscreen ? (
                     <ArrowMinimize16Regular />

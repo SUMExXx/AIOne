@@ -10,4 +10,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
     maximizeWindow: () => ipcRenderer.send('maximize-window'),
     closeWindow: () => ipcRenderer.send('close-window'),
     getAssetImage: (relativePath: string) => ipcRenderer.invoke('get-asset-image', relativePath),
+    onFullscreenChange: (callback: (isFullscreen: boolean) => void) => {
+        ipcRenderer.on('fullscreen-change', (_, isFullscreen) => {callback(isFullscreen);});
+    },
+    getFullscreenStatus: () => ipcRenderer.invoke('get-fullscreen'),
 });

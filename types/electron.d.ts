@@ -6,7 +6,9 @@ declare global {
             minimizeWindow: () => void;
             maximizeWindow: () => void;
             closeWindow: () => void;
-            getAssetImage: (relativePath: string) => Promise<string | null>
+            getAssetImage: (relativePath: string) => Promise<string | null>;
+            onFullscreenChange: (callback: (isFullscreen: boolean) => void) => void;
+            getFullscreenStatus: () => Promise<boolean>;
         };
     }
 }
