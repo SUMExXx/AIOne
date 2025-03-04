@@ -7,5 +7,5 @@ interface ENV{
 }
 
 export const env:ENV = {
-    TAG: "v1.2.0"
+    TAG: "v1.3.1"
 }
