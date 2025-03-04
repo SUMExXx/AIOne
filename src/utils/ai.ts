@@ -24,6 +24,12 @@ export const ais: AI[] = [
         "name": "DeepSeek",
         "logo": "/images/deepseek.png",
         "url": "https://chat.deepseek.com/",
+    },
+    {
+        "id": "4",
+        "name": "Perplexity",
+        "logo": "/images/perplexity.png",
+        "url": "https://www.perplexity.ai/",
     }
 ];
 

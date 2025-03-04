@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, autoUpdater, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 import dotenv from 'dotenv';
 import fs from 'fs';
@@ -10,6 +10,25 @@ declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
 dotenv.config();
+
+// const server = 'https://your-update-server.com';
+// const feedURL = `${server}/releases/${process.platform}-${process.arch}`;
+
+// autoUpdater.setFeedURL({ url: feedURL });
+
+// autoUpdater.checkForUpdatesAndNotify();
+
+// autoUpdater.on('update-available', () => {
+//   console.log('Update available');
+// });
+
+// autoUpdater.on('update-downloaded', () => {
+//   autoUpdater.quitAndInstall();
+// });
+
+// autoUpdater.on('error', (err) => {
+//   console.log('Error during update:', err);
+// });
 
 app.setName('AIOne');
 
