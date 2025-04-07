@@ -9,6 +9,7 @@ declare global {
             getAssetImage: (relativePath: string) => Promise<string | null>;
             onFullscreenChange: (callback: (isFullscreen: boolean) => void) => void;
             getFullscreenStatus: () => Promise<boolean>;
+            openExternal: (url: string) => void;
         };
     }
 }

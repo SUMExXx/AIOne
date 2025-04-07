@@ -1,4 +1,4 @@
-import { app, autoUpdater, BrowserWindow, ipcMain } from 'electron';
+import { app, autoUpdater, dialog, BrowserWindow, ipcMain, shell, MessageBoxOptions } from 'electron';
 import path from 'path';
 import dotenv from 'dotenv';
 import fs from 'fs';
@@ -10,25 +10,6 @@ declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
 dotenv.config();
-
-// const server = 'https://your-update-server.com';
-// const feedURL = `${server}/releases/${process.platform}-${process.arch}`;
-
-// autoUpdater.setFeedURL({ url: feedURL });
-
-// autoUpdater.checkForUpdatesAndNotify();
-
-// autoUpdater.on('update-available', () => {
-//   console.log('Update available');
-// });
-
-// autoUpdater.on('update-downloaded', () => {
-//   autoUpdater.quitAndInstall();
-// });
-
-// autoUpdater.on('error', (err) => {
-//   console.log('Error during update:', err);
-// });
 
 app.setName('AIOne');
 
@@ -75,14 +56,51 @@ const createWindow = (): void => {
   });
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
+
+const updater = () => {
+  // const server = 'https://github.com/SUMExXx/AIOne/releases/latest/download/RELEASES';
+  // const feedURL = `${server}/releases/${process.platform}-${process.arch}`;
+
+  const feedURL = "https://github.com/SUMExXx/AIOne/releases/latest/download/RELEASES";
+
+  autoUpdater.setFeedURL({ url: feedURL });
+
+  setInterval(() => {
+    autoUpdater.checkForUpdates()
+  }, 60000)
+
+  autoUpdater.on('update-available', () => {
+    console.log('Update available');
+  });
+
+  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+    console.log('Update downloaded');
+    const dialogOpts: MessageBoxOptions = {
+      type: 'info',
+      buttons: ['Restart', 'Later'],
+      title: 'Application Update',
+      message: process.platform === 'win32' ? releaseNotes : releaseName,
+      detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    }
+
+    dialog.showMessageBox(mainWindow, dialogOpts).then((returnValue) => {
+      if (returnValue.response === 0) autoUpdater.quitAndInstall()
+    })
+  })
+
+  autoUpdater.on('error', (err) => {
+    console.log('Error during update:', err);
+  });
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
   createWindow();
+  updater()
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -112,6 +130,10 @@ ipcMain.on('close-window', () => {
     if (mainWindow) {
         mainWindow.close(); // Close the window
     }
+});
+
+ipcMain.on("open-external", (event, url) => {
+    shell.openExternal(url); // Opens URL in the default browser
 });
 
 ipcMain.handle('get-fullscreen', () => {

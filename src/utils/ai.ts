@@ -30,6 +30,12 @@ export const ais: AI[] = [
         "name": "Perplexity",
         "logo": "/images/perplexity.png",
         "url": "https://www.perplexity.ai/",
+    },
+    {
+        "id": "5",
+        "name": "Grok",
+        "logo": "/images/grok.png",
+        "url": "https://grok.com/",
     }
 ];
 

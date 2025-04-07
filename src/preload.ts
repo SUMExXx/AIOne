@@ -14,4 +14,5 @@ contextBridge.exposeInMainWorld('electronAPI', {
         ipcRenderer.on('fullscreen-change', (_, isFullscreen) => {callback(isFullscreen);});
     },
     getFullscreenStatus: () => ipcRenderer.invoke('get-fullscreen'),
+    openExternal: (url: string) => ipcRenderer.send('open-external', url)
 });
